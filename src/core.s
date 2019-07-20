@@ -50,6 +50,9 @@ reset_bss:
 		BCC  reset_bss
 
 // enter main loop
-	B main
+	bl SystemInit
+	bl __libc_init_array
+	bl main
+	bx lr
 .size reset_handler, .-reset_handler
 

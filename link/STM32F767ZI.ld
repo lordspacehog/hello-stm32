@@ -44,11 +44,13 @@ SECTIONS {
     .bss : {
         . = ALIGN(4);
         _sbss = .;
+        __bss_start__ = _sbss;
         *(.bss)
         *(.bss*)
         *(COMMON)
         . = ALIGN(4);
         _ebss = .;
+        __bss_end__ = _ebss;
     } >SRAM
 
     .dynamic_allocations : {
